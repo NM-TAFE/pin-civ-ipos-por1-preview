@@ -1,7 +1,9 @@
 # Overview 
 > Tic-Tac-Toe Game Refactoring
+**NOTE:** The following project is a partially completed project. The original code is provided in the `tic_tac_toe.py` file. The code is a monolithic implementation of a tic-tac-toe game. The code is functional, but it is not modular and does not adhere to modern Python folder structure. The code also does not include any test cases. The objective of this project is to refactor the code to make it modular, adhere to modern Python folder structure, and include at least one test case. The refactored code should also employ a 2D data structure for the tic-tac-toe game board.
 
-**NOTE:** You may be asked by your lecturer to submit this assessment via GitHub classrooms. Please check closer to submission date.
+You can use this sample project to better understand how to complete your code. For simplicity, key stages in the project are implemented in various branches.
+
 
 ## Objective
 
@@ -17,12 +19,16 @@ In the process, you must use at least four functions, two classes, two files, an
 ## Instructions
 
 ### Step 1: Review the Existing Code
+- [x] I have analyzed `tic_tac_o_oh.py` 
+I can see it more or less works but it is not modular, and pretty hard to read - I also think there's a lot of interdependencies between the functions.
 
-Firstly, analyze the given tic-tac-toe game code. Understand the flow and functionality before proceeding with the refactoring.
+
+~~Firstly, analyze the given tic-tac-toe game code. Understand the flow and functionality before proceeding with the refactoring~~
 
 ### Step 2: Identify Components to Refactor
 
-Identify the parts of the code that can be improved. Determine which parts of the code can be grouped logically into separate modules.
+- [x] Annotated in the code. I think I would like to create a Game object and a Board object to separate the concerns of the game and the board. I think I would also like to separate the input and output from the game logic.
+~~Identify the parts of the code that can be improved. Determine which parts of the code can be grouped logically into separate modules.~~
 
 ### Step 3: Modularizing the Code
 
