@@ -9,6 +9,7 @@ board = [empty] * 9
 # Game loop
 while True:
     # Print board
+    # The entire board is hard coded procedurally I think a board should be implemented as an object
     print(board[0], "|", board[1], "|", board[2])
     print("---------")
     print(board[3], "|", board[4], "|", board[5])
@@ -17,7 +18,9 @@ while True:
     print()
 
     # Check for win
+    # win conditions are hard coded, I think this should be a function, or better still a method of the board object
     win_conditions = [(0,1,2), (3,4,5), (6,7,8), (0,3,6), (1,4,7), (2,5,8), (0,4,8), (2,4,6)]
+
     for wc in win_conditions:
         if board[wc[0]] == board[wc[1]] == board[wc[2]] != empty:
             print("Player", board[wc[0]], "wins!")
@@ -29,6 +32,7 @@ while True:
         exit(0)
 
     # Get next move
+    # The gameplay is hard coded does a TicTacToe game `have a` board? 
     while True:
         player = p1 if board.count(empty) % 2 == 1 else p2
         move = input("Next move for player " + player + " (0-8): ")
