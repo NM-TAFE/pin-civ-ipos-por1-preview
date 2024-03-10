@@ -1,5 +1,6 @@
 """Provides a class representing a Tic-Tac-Toe game board and its state"""
 
+from utilities import all_items_in_collection_equal
 import math
 
 
@@ -44,3 +45,14 @@ class Board:
 
         self.board[row][column] = player
         return True
+
+    def find_horizontal_winner(self):
+        """
+        Check for win conditions on the horizontal/in the rows.
+        :returns: the number of the winning player as an integer, or 0 if there
+            is no winner.
+        """
+        for row in self.board:
+            if row[0] != 0 and all_items_in_collection_equal(row):
+                return True
+        return False

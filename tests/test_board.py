@@ -6,6 +6,18 @@ class TestBoard(unittest.TestCase):
     def setUp(self):
         self.board = Board()
 
+    def set_up_draw(self):
+        """Set up a board with a tied position."""
+        self.board.add_player_move(1, 8)
+        self.board.add_player_move(2, 5)
+        self.board.add_player_move(1, 7)
+        self.board.add_player_move(2, 6)
+        self.board.add_player_move(1, 2)
+        self.board.add_player_move(2, 0)
+        self.board.add_player_move(1, 3)
+        self.board.add_player_move(2, 4)
+        self.board.add_player_move(1, 1)
+
     def test_default_board_has_3_rows(self):
         self.assertEqual(3, len(self.board.board))
 
@@ -34,3 +46,26 @@ class TestBoard(unittest.TestCase):
         self.board.add_player_move(1, 0)
         result = self.board.add_player_move(2, 0)
         self.assertFalse(result)
+
+    def test_horizontal_winner_found_in_first_row(self):
+        self.board.add_player_move(1, 0)
+        self.board.add_player_move(2, 3)
+        self.board.add_player_move(1, 1)
+        self.board.add_player_move(2, 4)
+        self.board.add_player_move(1, 2)
+        self.assertEqual(1, self.board.find_horizontal_winner())
+
+    def test_horizontal_winner_found_in_last_row(self):
+        self.board.add_player_move(1, 6)
+        self.board.add_player_move(2, 3)
+        self.board.add_player_move(1, 7)
+        self.board.add_player_move(2, 4)
+        self.board.add_player_move(1, 8)
+        self.assertEqual(1, self.board.find_horizontal_winner())
+
+    def test_no_horizontal_winner_found_in_empty_board(self):
+        self.assertEqual(0, self.board.find_horizontal_winner())
+
+    def test_no_horizontal_winner_found_in_draw(self):
+        self.set_up_draw()
+        self.assertEqual(0, self.board.find_horizontal_winner())
