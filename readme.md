@@ -20,9 +20,33 @@ In the process, you must use at least four functions, two classes, two files, an
 
 Firstly, analyze the given tic-tac-toe game code. Understand the flow and functionality before proceeding with the refactoring.
 
+Notes: The gameplay flow is as follows:
+
+1. Game setup
+   1. Define players
+   2. Define board
+2. Gameplay loop
+   1. Display the board
+   2. Check for win conditions
+   3. Check for a draw
+   4. Get the current player's next move
+      * If the move is invalid, try again until the player provides a valid move
+   5. Update the board with the player's move
+
+The program ends after a single game has been completed.
+
 ### Step 2: Identify Components to Refactor
 
 Identify the parts of the code that can be improved. Determine which parts of the code can be grouped logically into separate modules.
+
+Notes: I need a GameManager class to control the basic program flow and gameplay. I don't want to nuke the original tic_tac_o_oh.py code.
+I will move it into the GameManager class and replace it gradually as I refactor different aspects of the code, so that I have a working program at each step.
+
+I want to create a Board class to maintain the state of the game board. This can also have methods to check for win states and draws, taking this code out of the main game loop.
+
+I would also like to separate the UI code (input/output) from the game logic.
+I'll create a ConsoleUI class that displays the board, prints messages, and gets player input using the console.
+This would be easy to replace if we wanted to create a graphical UI in future.
 
 ### Step 3: Modularizing the Code
 
