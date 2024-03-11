@@ -149,3 +149,16 @@ class TestBoard(unittest.TestCase):
 
     def test_find_winner_finds_no_winner(self):
         self.assertEqual(0, self.board.find_winner())
+
+    def test_empty_board_is_not_full(self):
+        self.assertFalse(self.board.is_board_full())
+
+    def test_drawn_board_is_full(self):
+        self.set_up_draw()
+        self.assertTrue(self.board.is_board_full())
+
+    def test_partially_filled_board_is_not_full(self):
+        self.board.add_player_move(1, 2)
+        self.board.add_player_move(2, 3)
+        self.board.add_player_move(1, 7)
+        self.assertFalse(self.board.is_board_full())

@@ -109,3 +109,13 @@ class Board:
         if all_items_in_collection_equal(diagonal_data):
             return diagonal_data[0]
         return 0
+
+    def is_board_full(self):
+        """
+        Check whether the board is full (so that no more moves can be made).
+        :return: True if the board is full, False if not.
+        """
+        for row in self.board:
+            if self.empty in row:
+                return False
+        return True
