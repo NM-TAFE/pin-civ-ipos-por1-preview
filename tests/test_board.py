@@ -97,3 +97,27 @@ class TestBoard(unittest.TestCase):
     def test_no_vertical_winner_found_in_draw(self):
         self.set_up_draw()
         self.assertEqual(0, self.board.find_vertical_winner())
+
+    def test_rightward_diagonal_winner_found(self):
+        self.board.add_player_move(1, 0)
+        self.board.add_player_move(2, 1)
+        self.board.add_player_move(1, 4)
+        self.board.add_player_move(2, 5)
+        self.board.add_player_move(1, 8)
+        self.assertEqual(1, self.board.find_diagonal_winner())
+
+    def test_leftward_diagonal_winner_found(self):
+        self.board.add_player_move(1, 0)
+        self.board.add_player_move(2, 2)
+        self.board.add_player_move(1, 3)
+        self.board.add_player_move(2, 6)
+        self.board.add_player_move(1, 8)
+        self.board.add_player_move(2, 4)
+        self.assertEqual(2, self.board.find_diagonal_winner())
+
+    def test_no_diagonal_winner_found_in_empty_board(self):
+        self.assertEqual(0, self.board.find_diagonal_winner())
+
+    def test_no_diagonal_winner_found_in_draw(self):
+        self.set_up_draw()
+        self.assertEqual(0, self.board.find_diagonal_winner())

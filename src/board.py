@@ -72,3 +72,25 @@ class Board:
             if all_items_in_collection_equal(column_data):
                 return column_data[0]
         return 0
+
+    def find_diagonal_winner(self):
+        """
+        Check for win conditions on the two longest diagonals (passing through
+        the centre of the board).
+        :returns: the number of the winning player as an integer, or 0 if there
+            is no winner.
+        """
+        diagonal_data = []
+        for row_and_column in range(0, self.size):
+            diagonal_data.append(self.board[row_and_column][row_and_column])
+        if all_items_in_collection_equal(diagonal_data):
+            return diagonal_data[0]
+
+        diagonal_data = []
+        column = self.size - 1
+        for row in range(0, self.size):
+            diagonal_data.append(self.board[row][column])
+            column -= 1
+        if all_items_in_collection_equal(diagonal_data):
+            return diagonal_data[0]
+        return 0
