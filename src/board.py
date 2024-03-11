@@ -58,3 +58,17 @@ class Board:
             if row[0] != 0 and all_items_in_collection_equal(row):
                 return True
         return False
+
+    def find_vertical_winner(self):
+        """
+        Check for win conditions on the vertical/in the columns.
+        :returns: the number of the winning player as an integer, or 0 if there
+            is no winner.
+        """
+        for column in range(0, self.size):
+            column_data = []
+            for row in range(0, self.size):
+                column_data.append(self.board[row][column])
+            if all_items_in_collection_equal(column_data):
+                return column_data[0]
+        return 0
