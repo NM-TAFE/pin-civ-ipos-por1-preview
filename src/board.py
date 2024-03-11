@@ -48,6 +48,21 @@ class Board:
         self.board[row][column] = player
         return True
 
+    def find_winner(self):
+        """
+        Check for all possible win conditions.
+        :returns: the number of the winning player as an integer, or 0 if there
+            is no winner.
+        """
+        winner = self.find_horizontal_winner()
+        if winner != 0:
+            return winner
+        winner = self.find_vertical_winner()
+        if winner != 0:
+            return winner
+        winner = self.find_diagonal_winner()
+        return winner
+
     def find_horizontal_winner(self):
         """
         Check for win conditions on the horizontal/in the rows.
