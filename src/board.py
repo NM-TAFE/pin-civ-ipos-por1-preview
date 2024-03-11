@@ -16,8 +16,10 @@ class Board:
         """
         self.size = size
         self.empty = 0
-        row = [self.empty] * size
-        self.board = [row] * size
+        self.board = []
+        for row_number in range(0, size):
+            row = [self.empty] * size
+            self.board.append(row)
 
     def add_player_move(self, player, move):
         """

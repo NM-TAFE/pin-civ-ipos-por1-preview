@@ -38,6 +38,10 @@ class TestBoard(unittest.TestCase):
         self.board.add_player_move(1, 7)
         self.assertEqual(1, self.board.board[2][1])
 
+    def test_move_not_added_to_incorrect_row(self):
+        self.board.add_player_move(1, 0)
+        self.assertEqual(0, self.board.board[1][0])
+
     def test_move_higher_than_last_cell_number_fails(self):
         result = self.board.add_player_move(1, 9)
         self.assertFalse(result)
