@@ -4,6 +4,7 @@ basic program flow and gameplay loop for a game of Tic-Tac-Toe.
 """
 
 from board import Board
+from console_ui import ConsoleUI
 
 
 class GameManager:
@@ -14,12 +15,14 @@ class GameManager:
 
     def __init__(self):
         """Initialise the Tic-Tac-Toe game"""
-        self.players = {
+        self.player_map = {
+            0: ' ',
             1: 'X',
-            2: 'Y',
+            2: 'O',
         }
         self.current_player = 1
         self.board = Board()
+        self.ui = ConsoleUI(self.player_map)
 
     def main(self):
         """The main gameplay loop for the Tic-Tac-Toe game"""
@@ -36,25 +39,25 @@ class GameManager:
             # Check for win
             winner = self.board.find_winner()
             if winner:
-                print(f"Player {winner} wins!")
+                self.ui.announce_winner(winner)
                 return
 
             # Check for tie
             if self.board.is_board_full():
-                print("It's a tie!")
+                self.ui.announce_tie()
                 return
 
             # Get next move
             while True:
-                player = self.players[self.current_player]
+                player = self.player_map[self.current_player]
                 move = input("Next move for player " + player + " (0-8): ")
                 if move.isdigit() and 0 <= int(move) and self.board.add_player_move(self.current_player, int(move)):
                     break
                 else:
-                    print("Invalid move, try again.")
+                    self.ui.invalid_move_error()
 
             # Switch players
-            if self.current_player == len(self.players):
+            if self.current_player == len(self.player_map) - 1:
                 self.current_player = 1
             else:
                 self.current_player += 1
