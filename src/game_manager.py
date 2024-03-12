@@ -29,12 +29,9 @@ class GameManager:
         # Game loop
         while True:
             # Print board
-            print(self.board.board[0][0], "|", self.board.board[0][1], "|", self.board.board[0][2])
-            print("---------")
-            print(self.board.board[1][0], "|", self.board.board[1][1], "|", self.board.board[1][2])
-            print("---------")
-            print(self.board.board[2][0], "|", self.board.board[2][1], "|", self.board.board[2][2])
-            print()
+            # TODO: Maybe I should have a getter method for the board data
+            # rather than accessing it directly.
+            self.ui.display_2d_board(self.board.board)
 
             # Check for win
             winner = self.board.find_winner()

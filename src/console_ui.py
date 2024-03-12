@@ -17,6 +17,37 @@ class ConsoleUI:
         """
         self.player_map = player_map
 
+    def display_2d_board(self, board_data, horizontal_separator=" | ",
+                         vertical_separator="-"):
+        """
+        Display a 2-dimensional data structure as a game grid, using the
+        player_map dictionary to represent the data appropriately.
+        :param board_data: a 2-dimensional data structure containing the game
+            board data.
+        :param horizontal_separator: the separator to use between columns.
+        :param vertical_separator: the separator to use between rows. This will
+            be repeated to fill the full board width, so it should be a single
+            character.
+        """
+        board_height = len(board_data)
+        board_width = len(board_data[0])
+        for row_index in range(0, board_height):
+            # Print a row of the board.
+            for column_index in range(0, board_width):
+                cell_data = board_data[row_index][column_index]
+                cell_content = self.player_map[cell_data]
+                if column_index < board_width - 1:
+                    print(f"{cell_content}{horizontal_separator}", end='')
+                else:
+                    print(cell_content)
+            # Print a row separator.
+            if row_index < board_height - 1:
+                separator_width = (len(horizontal_separator))
+                board_visual_width = (board_width*(separator_width + 1) -
+                                      separator_width)
+                print(vertical_separator * board_visual_width)
+        print()
+
     def announce_winner(self, winner: int):
         """
         Announce the winner of the Tic-Tac-Toe game.
