@@ -22,6 +22,7 @@ class GameManager:
         }
         self.current_player = 1
         self.board = Board()
+        self.MAX_MOVE = self.board.get_max_move()
         self.ui = ConsoleUI(self.player_map)
 
     def main(self):
@@ -47,11 +48,11 @@ class GameManager:
             # Get next move
             while True:
                 player = self.player_map[self.current_player]
-                move = input("Next move for player " + player + " (0-8): ")
-                if move.isdigit() and 0 <= int(move) and self.board.add_player_move(self.current_player, int(move)):
+                move = self.ui.get_current_player_move(player, self.MAX_MOVE)
+                if 0 <= int(move) and self.board.add_player_move(self.current_player, move):
                     break
                 else:
-                    self.ui.invalid_move_error()
+                    self.ui.show_invalid_move_error()
 
             # Switch players
             if self.current_player == len(self.player_map) - 1:

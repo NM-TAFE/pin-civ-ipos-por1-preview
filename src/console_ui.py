@@ -3,6 +3,9 @@ A console UI for a Tic-Tac-Toe game.
 Author: Emily Boegheim
 """
 
+from utilities import get_int_from_input
+
+
 class ConsoleUI:
     """A console UI for a Tic-Tac-Toe game."""
     def __init__(self, player_map: dict):
@@ -16,6 +19,7 @@ class ConsoleUI:
             an empty space.
         """
         self.player_map = player_map
+        self.invalid_move_error = "Invalid move, try again."
 
     def display_2d_board(self, board_data, horizontal_separator=" | ",
                          vertical_separator="-"):
@@ -48,6 +52,18 @@ class ConsoleUI:
                 print(vertical_separator * board_visual_width)
         print()
 
+    def get_current_player_move(self, current_player, max_move):
+        """
+        Prompt the current player for their move and return the input as an
+        integer.
+        :param current_player: The current player, represented as an integer.
+        :param max_move: The highest move allowable on the board.
+        :returns: The player's selected move as an integer.
+        """
+        prompt = f"Next move for player {current_player} (0-{max_move}): "
+        error = self.invalid_move_error
+        return get_int_from_input(prompt, error)
+
     def announce_winner(self, winner: int):
         """
         Announce the winner of the Tic-Tac-Toe game.
@@ -59,6 +75,6 @@ class ConsoleUI:
         """Announce that the game has ended in a tie."""
         print("It's a tie!")
 
-    def invalid_move_error(self):
+    def show_invalid_move_error(self):
         """Inform the player that their selected move is invalid."""
-        print("Invalid move, try again.")
+        print(self.invalid_move_error)
