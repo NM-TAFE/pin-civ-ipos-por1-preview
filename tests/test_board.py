@@ -162,3 +162,6 @@ class TestBoard(unittest.TestCase):
         self.board.add_player_move(2, 3)
         self.board.add_player_move(1, 7)
         self.assertFalse(self.board.is_board_full())
+
+    def test_max_move_calculated_correctly(self):
+        self.assertEqual(8, self.board.get_max_move())
