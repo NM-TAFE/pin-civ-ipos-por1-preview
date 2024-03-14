@@ -60,7 +60,8 @@ class ConsoleUI:
         :param max_move: The highest move allowable on the board.
         :returns: The player's selected move as an integer.
         """
-        prompt = f"Next move for player {current_player} (0-{max_move}): "
+        player_icon = self.player_map[current_player]
+        prompt = f"Next move for player {player_icon} (0-{max_move}): "
         error = self.invalid_move_error
         return get_int_from_input(prompt, error)
 

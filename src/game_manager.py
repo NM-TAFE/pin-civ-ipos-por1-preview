@@ -47,8 +47,8 @@ class GameManager:
 
             # Get next move
             while True:
-                player = self.player_map[self.current_player]
-                move = self.ui.get_current_player_move(player, self.MAX_MOVE)
+                move = self.ui.get_current_player_move(self.current_player,
+                                                       self.MAX_MOVE)
                 if 0 <= int(move) and self.board.add_player_move(self.current_player, move):
                     break
                 else:
