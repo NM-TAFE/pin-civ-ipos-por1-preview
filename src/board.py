@@ -119,3 +119,11 @@ class Board:
             if self.empty in row:
                 return False
         return True
+
+    def get_max_move(self):
+        """
+        Calculate the highest move possible, if all the game board cells are
+        numbered consecutively starting from 0.
+        :returns: The maximum move allowable on the board.
+        """
+        return self.size*self.size - 1
