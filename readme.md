@@ -1,4 +1,5 @@
-# Overview 
+# Overview
+
 > Tic-Tac-Toe Game Refactoring
 
 **NOTE:** You may be asked by your lecturer to submit this assessment via GitHub classrooms. Please check closer to submission date.
@@ -18,13 +19,13 @@ In the process, you must use at least four functions, two classes, two files, an
 
 ### Step 1: Review the Existing Code
 
-Firstly, analyze the given tic-tac-toe game code. Understand the flow and functionality before proceeding with the refactoring.
+Firstly, analyse the given tic-tac-toe game code. Understand the flow and functionality before proceeding with the refactoring.
 
 ### Step 2: Identify Components to Refactor
 
 Identify the parts of the code that can be improved. Determine which parts of the code can be grouped logically into separate modules.
 
-### Step 3: Modularizing the Code
+### Step 3: Modularising the Code
 
 Refactor the code to create at least two files. These files should contain logically grouped functions and classes. Ensure the file names are appropriate for the division you have chosen.
 
@@ -44,15 +45,15 @@ tic_tac_toe/
 |--- setup.py
 ```
 
-**Note**: 
+**Note**:
 
 - `__init__.py` files are used to indicate that a directory should be treated as a Python package. This allows the files within to be imported as a module in the test scripts or other python files.
 - `setup.py` is a Python file used to specify what modules and dependencies must be installed. I will provide this file, along with instructions on how to install your modules using this file.
 - You must give your Python files appropriate names. Do **not** use module1, 2, etc.
-  
+
 ### Step 5: Create a Test Case
 
-Develop at least one test case for your refactored code. The test case should reside in the 'tests' directory. 
+Develop at least one test case for your refactored code. The test case should reside in the 'tests' directory.
 
 ### Step 6: Implement 2D Data Structure
 
@@ -64,7 +65,7 @@ Once you have completed your refactoring, write a brief report addressing the fo
 
 1. Justification for your refactoring decisions.
 2. The challenges you would have faced maintaining and testing the original monolithic code.
-3. How you would modify your refactored code to handle a custom-sized tic-tac-toe game (larger than 3x3), and how this implementation would be easier to handle than in the original code.
+3. How you would modify your refactored code to handle a custom-sised tic-tac-toe game (larger than 3x3), and how this implementation would be easier to handle than in the original code.
 
 ### Step 8: Short Answer (Knowledge Questions)
 
@@ -75,18 +76,18 @@ Provide brief answers to the knowledge-question worksheet.
 3. How would you explain Python's parameter-passing mechanism? Is it more similar to pass-by-value or pass-by-reference? Justify your answer.
 4. Given the following Python code, what will be the output and why?
 
-    ```python
-    def modify_list(list_):
-        list_.append("new")
-        list_ = ["completely", "new"]
+   ```python
+   def modify_list(list_):
+       list_.append("new")
+       list_ = ["completely", "new"]
 
-    items = ["original"]
-    modify_list(items)
-    print(items)
-    ```
+   items = ["original"]
+   modify_list(items)
+   print(items)
+   ```
 
 5. In Python even though variables created within a function are local, there are still situations where you can modify data outside the scope with a local variable. Explain this anomaly and relate it to both mutability and pass by reference.
-6. List two benefits of modular coding approaches. How do these benefits assist in the development of medium-sized applications?
+6. List two benefits of modular coding approaches. How do these benefits assist in the development of medium-sised applications?
 
 ### Submission
 
